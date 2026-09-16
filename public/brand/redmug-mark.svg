@@ -1,0 +1,23 @@
+<svg width="480" height="480" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RedMug IT Solution Co. L.L.C">
+  <defs>
+    <radialGradient id="redmug-sphere" cx="0.34" cy="0.24" r="0.98">
+      <stop offset="0" stop-color="#63B8F0"/>
+      <stop offset="0.42" stop-color="#1379C6"/>
+      <stop offset="1" stop-color="#083E77"/>
+    </radialGradient>
+  </defs>
+  <circle cx="60" cy="60" r="60" fill="url(#redmug-sphere)"/>
+  <ellipse cx="72" cy="30" rx="27" ry="17" fill="#fff" opacity=".16" transform="rotate(-24 72 30)"/>
+  <circle cx="60" cy="60" r="59" fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="1.5"/>
+  <g fill="#fff">
+    <polygon points="34,20 45.26,26.5 45.26,39.5 34,46 22.74,39.5 22.74,26.5"/>
+    <polygon points="52,13.5 59.36,17.75 59.36,26.25 52,30.5 44.64,26.25 44.64,17.75"/>
+    <polygon points="22,42.5 28.5,46.25 28.5,53.75 22,57.5 15.5,53.75 15.5,46.25" opacity=".9"/>
+    <polygon points="41,46 46.2,49 46.2,55 41,58 35.8,55 35.8,49" opacity=".55"/>
+    <polygon points="30,10.5 33.9,12.75 33.9,17.25 30,19.5 26.1,17.25 26.1,12.75" opacity=".7"/>
+    <polygon points="50,31 54.33,33.5 54.33,38.5 50,41 45.67,38.5 45.67,33.5" fill="none" stroke="#fff" stroke-width="2.2" opacity=".85"/>
+  </g>
+  <rect x="46" y="34" width="15" height="64" rx="2" fill="#fff"/>
+  <path d="M61 41.5H68A13.5 13.5 0 0 1 68 68.5H61" fill="none" stroke="#fff" stroke-width="15" stroke-linejoin="round"/>
+  <path d="M68 98V58L82 77L96 58V98H87.5V75L82 83.5L76.5 75V98Z" fill="#C8202F"/>
+</svg>

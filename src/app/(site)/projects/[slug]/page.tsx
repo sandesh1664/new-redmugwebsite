@@ -1,0 +1,10 @@
+import type { Metadata } from "next";
+import { and, eq } from "drizzle-orm";
+import { notFound } from "next/navigation";
+import { db } from "@/db";
+import { projects } from "@/db/schema";
+import { FinalCta, PageHero } from "@/components/public/sections";
+import { brandTitle, getSiteSettings } from "@/lib/site";
+type Props={params:Promise<{slug:string}>};export const dynamic="force-dynamic";
+export async function generateMetadata({params}:Props):Promise<Metadata>{const{slug}=await params;const[item]=await db.select().from(projects).where(and(eq(projects.slug,slug),eq(projects.status,"PUBLISHED"))).limit(1);return item?{title:brandTitle(item.seoTitle||item.name),description:item.seoDescription||item.summary,alternates:{canonical:`/projects/${item.slug}`}}:{}}
+export default async function ProjectPage({params}:Props){const{slug}=await params;const[[item],settings]=await Promise.all([db.select().from(projects).where(and(eq(projects.slug,slug),eq(projects.status,"PUBLISHED"))).limit(1),getSiteSettings()]);if(!item)notFound();return <main id="main-content"><PageHero eyebrow={`${item.category} / Case study`} title={item.name} description={item.summary}/><section className="page-body"><div className="site-container content-grid"><article className="prose">{item.isDemo&&<div className="form-message" style={{border:"1px solid rgba(226,171,61,.35)",color:"#e4bd6b"}}>Sample data: this record demonstrates the CMS case-study structure. It does not describe a real customer or claim real outcomes.</div>}<h2>The challenge</h2><p>{item.challenge}</p><h2>The solution architecture</h2><p>{item.solution}</p><h2>Technology</h2><div className="logo-stack">{item.technologies.map(value=><span key={value}>{value}</span>)}</div><h2>Results</h2><div className="check-list">{item.results.map(value=><span key={value}>{value}</span>)}</div></article><aside className="side-panel"><small>Project profile</small><span>{item.category}</span>{item.client&&<span>{item.client}</span>}{item.location&&<span>{item.location}</span>}<span>{item.status}</span></aside></div></section>{settings&&<FinalCta title={settings.defaultCtaTitle} text={settings.defaultCtaText}/>}</main>}
