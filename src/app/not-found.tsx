@@ -1,2 +1,19 @@
 import Link from "next/link";
-export default function NotFound(){return <main className="login-page"><section className="login-visual"><span className="eyebrow">ERROR / 404</span><div><h1>That system path doesn’t exist.</h1><p>The page may have moved, been unpublished, or never existed.</p></div></section><section className="login-panel"><div className="login-card"><h2>Return to a known route.</h2><p>Explore RedMug’s published technology capabilities or start again from the homepage.</p><div className="hero-actions"><Link className="button button-primary" href="/">Homepage</Link><Link className="button" href="/services" style={{border:"1px solid #d8e0e8"}}>Services</Link></div></div></section></main>}
+import { ArrowRight } from "lucide-react";
+
+export default function NotFound() {
+  return (
+    <main id="main-content" className="not-found">
+      <div className="site-container not-found-inner">
+        <span className="eyebrow">Error / 404</span>
+        <h1>That system path doesn’t exist.</h1>
+        <p>The page may have moved, been unpublished, or never existed. Return to a known route.</p>
+        <div className="hero-actions">
+          <Link className="button button-primary" href="/">Homepage <ArrowRight size={15} /></Link>
+          <Link className="button button-secondary" href="/services">Explore services</Link>
+          <Link className="button button-secondary" href="/contact">Contact RedMug</Link>
+        </div>
+      </div>
+    </main>
+  );
+}
